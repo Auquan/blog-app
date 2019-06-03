@@ -25,12 +25,7 @@ const PostReducer = (state = initialState, action) => {
       };
     case GET_POST :
       return {
-        data: state.data.map(post => {
-          if (post.cuid === action.post.cuid) {
-            post = action.post;
-          }
-          return post;
-        }),
+        data: state.data.filter(post => post.cuid === action.cuid),
       };
     case SORT_BY_TIME:
       state.data.sort((a, b) => (a.timeAdded > b.timeAdded) ? 1 : -1);

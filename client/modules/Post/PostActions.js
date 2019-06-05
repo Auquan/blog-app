@@ -5,7 +5,6 @@ export const ADD_POST = 'ADD_POST';
 export const ADD_POSTS = 'ADD_POSTS';
 export const DELETE_POST = 'DELETE_POST';
 export const EDIT_POST = 'EDIT_POST';
-export const UPDATE_POST = 'UPDATE_POST';
 export const GET_POST = 'GET_POST';
 export const SORT_BY_TIME = 'SORT_BY_TIME';
 export const SORT_BY_VISITS = 'SORT_BY_VISITS';
@@ -104,12 +103,6 @@ export function sortByVisits() {
   };
 }
 
-export function updatePost(cuid) {
-  return {
-    type: UPDATE_POST,
-    cuid,
-  };
-}
 
 export function deletePostRequest(cuid) {
   return (dispatch) => {

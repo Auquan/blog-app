@@ -20,11 +20,3 @@ export function toggleEditPost(post) {
   };
 }
 
-// Export Actions
-export function sortPosts(posts) {
-  return {
-    type: SORT_POST,
-    posts,
-  };
-}
-

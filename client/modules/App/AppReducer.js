@@ -1,5 +1,5 @@
 // Import Actions
-import { TOGGLE_ADD_POST, SORT_POST, TOGGLE_EDIT_POST } from './AppActions';
+import { TOGGLE_ADD_POST, TOGGLE_EDIT_POST } from './AppActions';
 
 // Initial State
 const initialState = {
@@ -15,10 +15,6 @@ const AppReducer = (state = initialState, action) => {
         showAddPost: !state.showAddPost,
         showEditPost: state.showEditPost,
         editData: state.editData,
-      };
-    case SORT_POST:
-      return {
-        posts: action.posts,
       };
     case TOGGLE_EDIT_POST:
       return{

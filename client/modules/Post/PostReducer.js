@@ -1,5 +1,4 @@
-import { ADD_POST, ADD_POSTS, DELETE_POST, EDIT_POST, UPDATE_POST, GET_POST, SORT_BY_VISITS, SORT_BY_TIME, increasePostRequest } from './PostActions';
-import { TOGGLE_ADD_POST } from '../App/AppActions';
+import { ADD_POST, ADD_POSTS, DELETE_POST, EDIT_POST, GET_POST, SORT_BY_VISITS, SORT_BY_TIME, increasePostRequest } from './PostActions';
 
 // Initial State
 const initialState = { 
@@ -26,12 +25,6 @@ const PostReducer = (state = initialState, action) => {
     case DELETE_POST :
       return {
         data: state.data.filter(post => post.cuid !== action.cuid),
-        showEditPost: initialState.showEditPost,
-        editData: initialState.editData,
-      };
-    case UPDATE_POST :
-      return {
-        data: state.data.filter(post => post.cuid === action.cuid),
         showEditPost: initialState.showEditPost,
         editData: initialState.editData,
       };

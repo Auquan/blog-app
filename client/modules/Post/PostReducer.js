@@ -32,12 +32,19 @@ const PostReducer = (state = initialState, action) => {
           return post;
         }),
       };
-    case SORT_BY_TIME:
-      state.data.sort((a, b) => (a.timeAdded > b.timeAdded) ? 1 : -1);
-      return {
-        data: Array.from(state.data),
+      case SORT_BY_TIME: {
+        state.data.sort((a, b) => {
+          a = new Date(a.dateAdded);
+          b = new Date(b.dateAdded);
+          return a>b ? -1 : a<b ? 1 : 0;
+        })
+        return {
+          data: Array.from(state.data),
+          showEditPost: initialState.showEditPost,
+          post: initialState.post,
+        };
       };
-    case SORT_BY_VISITS:
+      case SORT_BY_VISITS:
       state.data.sort((a, b) => (parseInt(a.visits) > parseInt(b.visits)) ? 1 : -1);
       return {
         data: Array.from(state.data),

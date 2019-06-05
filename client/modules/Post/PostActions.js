@@ -38,16 +38,16 @@ export function addPostRequest(post) {
   };
 }
 
-export function updatePostRequest(post) {
+export function editPostRequest(post) {
   return (dispatch) => {
-    return callApi('posts', 'update', {
-      post: {
+    return callApi(`posts/${post.cuid}/${post.slug}`, 'put', {
+      data: {
         name: post.name,
         title: post.title,
         content: post.content,
         visits: post.visits,
       },
-    }).then(res => dispatch(addPost(res.post)));
+    }).then(res => dispatch(editPost(res.post)));
   };
 }
 

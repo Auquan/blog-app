@@ -62,6 +62,27 @@ export function getPost(req, res) {
 }
 
 /**
+ * edit existing post
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function editPost(req, res) {
+  Post.findOne({ cuid: req.params.cuid }).exec((err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    post.title = req.body.data.title;
+    post.name = req.body.data.name;
+    post.visits = req.body.data.visits;
+    post.status = req.body.data.status;
+    post.save(() => {
+      res.json({ post });
+    });
+  });
+}
+
+/**
  * Delete a post
  * @param req
  * @param res

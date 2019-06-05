@@ -13,6 +13,7 @@ function PostList(props) {
             post={post}
             key={post.cuid}
             onDelete={() => props.handleDeletePost(post.cuid)}
+            onEdit={()=>props.toggleEditPost(post)}
           />
         ))
       }
